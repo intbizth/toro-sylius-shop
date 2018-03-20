@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <imports>
+        <import resource="service/form.xml"/>
+    </imports>
+    <services>
+        <service id="toro_address.grid_filter.geo_tree_filter" class="ToroShop\Bundle\AddressBundle\Grid\Filter\GeoTreeFilter">
+            <argument type="service" id="toro.repository.geo_name"/>
+            <tag name="sylius.grid_filter" type="geo_tree"
+                 form-type="ToroShop\Bundle\AddressBundle\Form\Type\Sylius\Admin\Filter\GeoFilterType"/>
+        </service>
+    </services>
+</container>

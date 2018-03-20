@@ -1,0 +1,3 @@
+imports:
+     - { resource: "./override_bitbag.yml" }
+     - { resource: "./product.yml" }

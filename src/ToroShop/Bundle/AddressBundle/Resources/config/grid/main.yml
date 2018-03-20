@@ -1,0 +1,5 @@
+imports:
+     - { resource: "./country.yml" }
+     - { resource: "./province.yml" }
+     - { resource: "./district.yml" }
+     - { resource: "./parish.yml" }

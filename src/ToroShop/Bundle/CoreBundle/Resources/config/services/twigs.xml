@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service class="ToroShop\Bundle\CoreBundle\Twig\OriginalPriceExtension" public="false">
+            <argument type="service">
+                <service class="ToroShop\Bundle\CoreBundle\Templating\Helper\OriginalPriceHelper" public="false">
+                    <argument type="service" id="gdd_core.calculator.product_variant_original_price_calculator"/>
+                </service>
+            </argument>
+            <tag name="twig.extension"/>
+        </service>
+
+        <service class="ToroShop\Bundle\CoreBundle\Twig\PercentageDiscountExtension" public="false">
+            <argument type="service">
+                <service class="ToroShop\Bundle\CoreBundle\Templating\Helper\PercentageDiscountHelper" public="false">
+                    <argument type="service" id="gdd_core.calculator.product_variant_original_price_calculator"/>
+                    <argument type="service" id="sylius.calculator.product_variant_price"/>
+                </service>
+            </argument>
+            <tag name="twig.extension" />
+        </service>
+
+        <service class="ToroShop\Bundle\CoreBundle\Twig\ProductVariantInventoryExtension" public="false">
+            <argument type="service">
+                <service class="ToroShop\Bundle\CoreBundle\Templating\Helper\ProductVariantInventoryHelper" public="false">
+                    <argument type="service" id="gdd_core.provider.product_variant_inventory"/>
+                </service>
+            </argument>
+            <tag name="twig.extension"/>
+        </service>
+
+        <service class="ToroShop\Bundle\CoreBundle\Twig\PageContentRenderBlock" public="false">
+            <argument type="service" id="bitbag_sylius_cms_plugin.repository.block" />
+            <argument type="service" id="twig" />
+            <tag name="twig.extension"/>
+        </service>
+    </services>
+</container>

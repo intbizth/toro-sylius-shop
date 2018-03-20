@@ -1,0 +1,31 @@
+{
+  "name": "intbizth/toro-sylius-shop",
+  "type": "project",
+  "require": {
+    "php": ">=7.2",
+
+    "symfony/symfony": "^3.4.0",
+    "sylius/sylius": "^1.1",
+    "phpmob/twig-modify-bundle": "^1.1",
+    "bitbag/cms-plugin": "^1.2",
+    "stefandoorn/sitemap-plugin": "^1.0",
+    "egeloen/ckeditor-bundle": "^6.0",
+    "helios-ag/fm-elfinder-bundle": "^6.2",
+    "league/flysystem": "^1.0"
+  },
+  "require-dev": {},
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "": "src/"
+    }
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  }
+}

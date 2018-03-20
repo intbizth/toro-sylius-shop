@@ -1,0 +1,11 @@
+sylius_resource:
+    resources:
+        bitbag_sylius_cms_plugin.page:
+            classes:
+                repository: ToroShop\Bundle\CoreBundle\Doctrine\ORM\PageRepository
+
+sylius_product:
+    resources:
+        product:
+            classes:
+                repository: ToroShop\Bundle\CoreBundle\Doctrine\ORM\ProductRepository

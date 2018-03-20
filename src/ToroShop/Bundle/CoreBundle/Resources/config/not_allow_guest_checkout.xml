@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service class="ToroShop\Bundle\CoreBundle\EventListener\SetDefaultAddressOnFirstAddressAddedListener" public="false">
+            <argument type="service" id="sylius.manager.address"/>
+            <tag name="kernel.event_listener" event="sylius.address.post_create" method="setDefault"/>
+        </service>
+
+        <service id="gdd_core.resolver.order_address_resolver" class="ToroShop\Bundle\CoreBundle\Resolver\OrderAddressResolver" />
+
+        <service id="gdd.context.cart.new_without_default_address" class="ToroShop\Bundle\CoreBundle\Context\CartContext" decorates="sylius.context.cart.new" decoration-priority="128" public="false">
+            <argument type="service" id="gdd.context.cart.new_without_default_address.inner" />
+        </service>
+    </services>
+</container>

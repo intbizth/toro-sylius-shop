@@ -1,0 +1,12 @@
+toro:
+    address:
+        first_name:
+            not_blank: 'กรุณาระบุชื่อ'
+        last_name:
+            not_blank: 'กรุณาระบุนามสกุล'
+        phone_number:
+            not_blank: 'กรุณาระบุเบอร์โทรศัพท์'
+        street:
+            not_blank: 'กรุณาระบุบ้านเลขที่ หมู่บ้าน ถนน'
+        geo:
+            not_blank: 'กรุณาระบุที่อยู่'

@@ -1,0 +1,12 @@
+imports:
+     - { resource: "@GddCoreBundle/Resources/config/grid/main.yml" }
+     - { resource: "./sylius_resource.yml" }
+     - { resource: "./sylius_taxonomy.yml" }
+     - { resource: "./state_machine/sylius_order.yml" }
+
+     - { resource: "@ToroAddressBundle/Resources/config/app/config.yml" }
+     - { resource: "@ToroAddressBundle/Resources/config/app/sylius_override.yml" }
+     - { resource: "@ToroCurrencyBundle/Resources/config/app/config.yml" }
+     - { resource: "@ToroCmsBundle/Resources/config/app/config.yml" }
+     - { resource: '@BitBagSyliusCmsPlugin/Resources/config/config.yml' }
+     - { resource: "@PhpMobSyliusSettingsPlugin/Resources/config/app/config.yml" }

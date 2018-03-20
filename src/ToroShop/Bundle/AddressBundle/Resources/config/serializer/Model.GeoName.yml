@@ -1,0 +1,55 @@
+ToroShop\Bundle\AddressBundle\Model\GeoName:
+    exclusion_policy: ALL
+    xml_root_name: geo_name
+    properties:
+        id:
+            expose: true
+            type: integer
+            xml_attribute: true
+            groups: [Default, Detailed, Autocomplete]
+        code:
+            expose: true
+            type: string
+            groups: [Default, Detailed, Autocomplete]
+        children:
+            expose: true
+            type: array
+            groups: [Detailed]
+        root:
+            expose: true
+            max_depth: 2
+            groups: [Default, Detailed, Autocomplete]
+        parent:
+            expose: true
+            max_depth: 2
+            groups: [Default, Detailed, Autocomplete]
+        left:
+            expose: true
+            type: integer
+            groups: [Detailed]
+        right:
+            expose: true
+            type: integer
+            groups: [Detailed]
+        level:
+            expose: true
+            type: integer
+            groups: [Detailed, Autocomplete]
+        position:
+            expose: true
+            type: integer
+            groups: [Default, Detailed]
+        translations:
+            expose: true
+            type: array
+            groups: [Default, Detailed]
+    virtual_properties:
+        getName:
+            serialized_name: name
+            groups: [Default, Detailed, Autocomplete]
+        getGeoName:
+            serialized_name: geoName
+            groups: [Default, Detailed, Autocomplete]
+        getAddressName:
+            serialized_name: addressName
+            groups: [Default, Detailed, Autocomplete]

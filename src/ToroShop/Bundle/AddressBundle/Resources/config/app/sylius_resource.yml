@@ -1,0 +1,16 @@
+sylius_resource:
+    resources:
+        toro.country:
+            classes:
+                model: ToroShop\Bundle\AddressBundle\Model\Country
+                interface: ToroShop\Bundle\AddressBundle\Model\CountryInterface
+        toro.geo_name:
+            classes:
+                model: ToroShop\Bundle\AddressBundle\Model\GeoName
+                interface: ToroShop\Bundle\AddressBundle\Model\GeoNameInterface
+                factory: Sylius\Component\Resource\Factory\TranslatableFactory
+                repository: ToroShop\Bundle\AddressBundle\Doctrine\ORM\GeoNameRepository
+            translation:
+                classes:
+                    model: ToroShop\Bundle\AddressBundle\Model\GeoNameTranslation
+                    interface: ToroShop\Bundle\AddressBundle\Model\GeoNameTranslationInterface

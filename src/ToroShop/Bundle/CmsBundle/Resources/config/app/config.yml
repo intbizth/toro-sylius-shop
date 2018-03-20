@@ -1,0 +1,63 @@
+ivory_ck_editor:
+    default_config: default
+    toolbars:
+        configs:
+           default: [ "@document", "@clipboard" , "/", "@basicstyles" , "@paragraph" , "@links" , "@insert" , "/",  "@styles", "@colors" ]
+        items:
+           document: [ "Source", "-", "Save" ]
+           clipboard: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ]
+           basicstyles: [ 'Bold', 'Italic', 'Underline' ]
+           paragraph: ['NumberedList', 'BulletedList', '-', 'Blockquote', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight' ]
+           links: [ 'Link', 'Unlink', 'Anchor' ]
+           insert: [ 'Image', 'Smiley' ]
+           styles: [ 'Styles', 'Format', 'Font', 'FontSize' ]
+           colors: [ 'TextColor', 'BGColor' ]
+    configs:
+        default:
+            toolbar: default
+            filebrowserBrowseRoute: elfinder
+            filebrowserBrowseRouteParameters:
+                instance: toro_cms
+
+liip_imagine:
+    filter_sets:
+        page_cms:
+            quality : "90"
+            filters:
+                thumbnail:
+                    size: [900, 500]
+                    mode: inset
+
+fm_elfinder:
+    assets_path: /assets #this is where css/js elfinder files are
+    instances:
+        toro_cms:
+            locale: "LANG" # defaults to current request locale
+            editor: ckeditor # other options are tinymce, tinymce4, fm_tinymce, form, simple, custom
+            include_assets: true # disable if you want to manage loading of javascript and css assets manually
+            #visible_mime_types: ['image/png', 'image/jpg', 'image/jpeg'] # only show these mime types, defaults to show all
+            connector:
+                debug: "%kernel.debug%"
+                roots:
+                    public:
+                        driver: Flysystem
+                        tmb_path: "%kernel.root_dir%/../web/media/image/_torocms/thumbnail"
+                        tmb_url: /thumbnail
+                        tmb_path_mode: 0755
+                        flysystem:
+                            type: local
+                            options:
+                                local:
+                                    path: "%kernel.root_dir%/../web/media/image/_torocms/source"
+                        path: public
+                        url: media/cache/resolve/page_cms/_torocms/source/public
+                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
+                        upload_deny: ['all']
+                        upload_max_size: 10M
+                        accepted_name: /^\w[\w\s\.\%\-\~]*$/u
+                        plugins:
+                            - name: 'Sanitizer'
+                              value:
+                                enable: true
+                                targets: ['\','/',':','*','?','"','<','>','|', ' ']
+                                replace: "-"

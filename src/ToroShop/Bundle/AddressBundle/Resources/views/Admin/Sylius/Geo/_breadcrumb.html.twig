@@ -1,0 +1,32 @@
+{% import '@SyliusAdmin/Macro/breadcrumb.html.twig' as breadcrumb %}
+
+{% set breadcrumbs = [
+{ label: 'sylius.ui.administration'|trans, url: path('sylius_admin_dashboard') },
+{ label: configuration.vars.header|trans},
+]
+%}
+
+{% if configuration.vars.province|default %}
+    {% set province = configuration.vars.province %}
+    {% set breadcrumbs = [
+    { label: 'sylius.ui.administration'|trans, url: path('sylius_admin_dashboard') },
+    { label: province.name, url: path('toro_admin_geo_provinces_index', {'countryId' : province.country.id})},
+    { label: configuration.vars.header|trans},
+    ]
+    %}
+{% elseif configuration.vars.district|default  %}
+    {% set district = configuration.vars.district %}
+    {% set province = district.parent %}
+
+    {% set breadcrumbs = [
+    { label: 'sylius.ui.administration'|trans, url: path('sylius_admin_dashboard') },
+    { label: province.name, url: path('toro_admin_geo_provinces_index', {'countryId' : province.country.id})},
+    { label: district.name, url: path('toro_admin_geo_districts_index', {'provinceId' : province.id})},
+    { label: configuration.vars.header|trans},
+    ]
+    %}
+{% endif %}
+
+
+
+{{ breadcrumb.crumble(breadcrumbs) }}

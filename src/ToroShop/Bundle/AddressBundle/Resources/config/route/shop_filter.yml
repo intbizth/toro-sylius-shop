@@ -1,0 +1,14 @@
+toro_shop_ajax_filter_geo:
+    path: /geos/filter
+    methods: [GET]
+    defaults:
+        _format: json
+        _controller: toro.controller.geo_name:indexAction
+        _sylius:
+            repository:
+                method: findForFilter
+                arguments:
+                    - $keyword
+                    - 'expr:service("sylius.context.locale").getLocaleCode()'
+                    - $type
+            serialization_groups: [Autocomplete]

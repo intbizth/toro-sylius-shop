@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <imports>
+        <import resource="services/events.xml"/>
+        <import resource="services/fixtures.xml"/>
+        <import resource="services/forms.xml"/>
+        <import resource="services/sitemaps.xml"/>
+        <import resource="services/sylius_fix.xml"/>
+        <import resource="services/twigs.xml"/>
+    </imports>
+
+    <services>
+        <service class="ToroShop\Bundle\CoreBundle\Menu\AccountShopMenuBuilder" public="false">
+            <argument type="service" id="knp_menu.factory" />
+            <argument type="service" id="gdd.context.setting_context" />
+            <tag name="knp_menu.menu_builder" method="createMenu" alias="gdd.shop.account" />
+        </service>
+
+        <service
+                id="gdd_core.calculator.product_variant_original_price_calculator"
+                class="ToroShop\Bundle\CoreBundle\Calculator\ProductVariantOriginalPriceCalculator"
+                public="true"
+        />
+        <service
+                id="gdd.session.storage.mock_file"
+                parent="session.storage.mock_file"
+                class="ToroShop\Bundle\CoreBundle\Session\Storage\MockFileSessionStorage"
+                public="false" lazy="true"
+        />
+
+        <service id="gdd_core.provider.product_variant_inventory" class="ToroShop\Bundle\CoreBundle\Provider\ProductVariantInventoryProvider"/>
+
+        <service id="sylius.grid.filter.price_filter" class="Sylius\Grid\Filter\PriceFilter">
+            <argument id="sylius.currency_converter" type="service" />
+            <argument id="sylius.context.channel" type="service" />
+            <argument id="sylius.context.currency" type="service" />
+            <tag name="sylius.grid_filter" type="price" form-type="Sylius\Bundle\GridBundle\Form\Type\Filter\StringFilterType" />
+        </service>
+    </services>
+</container>

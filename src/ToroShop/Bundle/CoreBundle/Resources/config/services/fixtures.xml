@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="gdd.fixture.admin_user" class="ToroShop\Bundle\CoreBundle\Fixture\AdminUserFixture">
+            <argument type="service" id="sylius.manager.admin_user" />
+            <argument type="service" >
+                <service class="ToroShop\Bundle\CoreBundle\Fixture\AdminUserExampleFactory">
+                    <argument type="service" id="sylius.factory.admin_user" />
+                    <argument>%locale%</argument>
+                </service>
+            </argument>
+            <tag name="sylius_fixtures.fixture" />
+        </service>
+
+        <service id="gdd.fixture.exchange_rate" class="ToroShop\Bundle\CoreBundle\Fixture\ExchangeRateFixture">
+            <argument type="service" id="sylius.manager.exchange_rate" />
+            <argument type="service" >
+                <service class="ToroShop\Bundle\CoreBundle\Fixture\ExchangeRateExampleFactory">
+                    <argument type="service" id="sylius.factory.exchange_rate" />
+                    <argument type="service" id="sylius.repository.currency" />
+                </service>
+            </argument>
+            <tag name="sylius_fixtures.fixture" />
+        </service>
+    </services>
+</container>

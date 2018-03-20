@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/services/constraint-mapping-1.0.xsd">
+    <class name="Sylius\Component\Payment\Model\Payment">
+        <property name="currencyCode">
+            <constraint name="ToroShop\Bundle\CurrencyBundle\Validator\Constraints\Currency">
+                <option name="message">sylius.payment.currency_code.not_valid</option>
+                <option name="groups">toro_currency</option>
+            </constraint>
+        </property>
+    </class>
+</constraint-mapping>

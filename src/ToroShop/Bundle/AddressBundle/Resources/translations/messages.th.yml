@@ -1,0 +1,20 @@
+toro:
+    country: 'ประเทศ'
+    ui:
+        countries: 'ประเทศ'
+        geo_names: 'ที่อยู่'
+        province: 'จังหวัด'
+        district: 'เขต / อำเภอ'
+        parish: 'แขวง / ตำบล'
+    form:
+        geo_name:
+            name: 'ชื่อ'
+            geo_name: 'ชื่อที่แสดงเต็ม'
+            slug: 'slug'
+            post_code: 'รหัสไปรษณีย์'
+
+sylius:
+    form:
+        address:
+            street: 'บ้านเลขที่ หมู่บ้าน ถนน'
+            geo: 'ที่อยู่'

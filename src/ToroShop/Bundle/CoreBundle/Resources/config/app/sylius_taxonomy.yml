@@ -1,0 +1,5 @@
+sylius_taxonomy:
+    resources:
+        taxon:
+            classes:
+                model: ToroShop\Bundle\CoreBundle\Model\Taxon

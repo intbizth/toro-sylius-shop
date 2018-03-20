@@ -1,0 +1,9 @@
+{% from '@SyliusAdmin/Macro/translationForm.html.twig' import translationForm %}
+
+<div class="ui segment">
+    {{ form_errors(form) }}
+    {% if form.postCode is defined %}
+        {{ form_row(form.postCode) }}
+    {% endif %}
+    {{ translationForm(form.translations) }}
+</div>

@@ -1,0 +1,27 @@
+sylius_grid:
+    grids:
+        toro_admin_country:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: "%toro.model.country.class%"
+
+            sorting: ~
+
+            fields:
+                name:
+                    type: string
+                    label: "Name"
+                    sortable: ~
+
+            actions:
+                item:
+                    viewProvince:
+                         type: link
+                         label: toro.ui.province
+                         options:
+                             class: primary
+                             icon: eye
+                             route: toro_admin_geo_provinces_index
+                             parameters:
+                                countryId: resource.id

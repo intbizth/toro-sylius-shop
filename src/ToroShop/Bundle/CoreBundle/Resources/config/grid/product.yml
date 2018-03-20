@@ -1,0 +1,33 @@
+sylius_grid:
+    grids:
+        sylius_shop_product:
+            driver:
+                options:
+                    class: "%sylius.model.product.class%"
+                    repository:
+                        method: createPublicListQueryBuilder
+                        arguments:
+                            channel: "expr:service('sylius.context.channel').getChannel()"
+                            taxon: "expr:notFoundOnNull(service('sylius.repository.taxon').findOneBySlug($slug, service('sylius.context.locale').getLocaleCode()))"
+                            locale: "expr:service('sylius.context.locale').getLocaleCode()"
+                            sorting: "expr:service('request_stack').getCurrentRequest().get('sorting', [])"
+                            criteria: $search
+            limits: [12, 24]
+            filters:
+                keyword:
+                    type: string
+                    label: false
+                    options:
+                        fields: [translation.name]
+                    form_options:
+                        type: contains
+                lowest_price:
+                    type: price
+                    options:
+                        fields: channelPricing.price
+                        scale: 2
+                highest_price:
+                    type: price
+                    options:
+                        fields: channelPricing.price
+                        scale: 2

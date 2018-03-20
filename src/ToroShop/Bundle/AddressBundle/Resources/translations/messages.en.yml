@@ -1,0 +1,20 @@
+toro:
+    country: 'country'
+    ui:
+        geo_names: 'geo'
+        countries: 'countries'
+        province: 'Province'
+        district: 'District'
+        parish: 'Parish'
+    form:
+        geo_name:
+            name: 'Name'
+            geo_name: 'Full name'
+            slug: 'Slug'
+            post_code: 'Postcode'
+
+sylius:
+    form:
+        address:
+            street: 'บ้านเลขที่ หมู่บ้าน ถนน'
+            geo: 'ที่อยู่'

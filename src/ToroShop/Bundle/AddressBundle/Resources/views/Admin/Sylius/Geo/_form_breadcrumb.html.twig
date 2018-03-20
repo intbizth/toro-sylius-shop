@@ -1,0 +1,22 @@
+{% import '@SyliusAdmin/Macro/breadcrumb.html.twig' as breadcrumb %}
+
+{% if resource.isProvince %}
+    {% set path = path('toro_admin_geo_provinces_index', { countryId: resource.country.id }) %}
+    {% set label = 'toro.ui.province' %}
+{% elseif resource.isDistrict %}
+    {% set path = path('toro_admin_geo_districts_index', { provinceId: resource.parent.id }) %}
+    {% set label = 'toro.ui.district' %}
+{% elseif resource.isParish %}
+    {% set path = path('toro_admin_geo_parishs_index', { districtId: resource.parent.id }) %}
+    {% set label = 'toro.ui.parish' %}
+{% endif %}
+
+{% set breadcrumbs = [
+{ label: 'sylius.ui.administration'|trans, url: path('sylius_admin_dashboard') },
+{ label: label|trans, url: path },
+{ label: resource.name|default(resource.id)},
+{ label: 'sylius.ui.edit'|trans }
+]
+%}
+
+{{ breadcrumb.crumble(breadcrumbs) }}

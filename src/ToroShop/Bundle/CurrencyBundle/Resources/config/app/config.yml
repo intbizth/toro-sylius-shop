@@ -1,0 +1,28 @@
+parameters:
+    sylius.form.type.cart.validation_groups: ['toro_currency']
+
+sylius_grid:
+    grids:
+        sylius_admin_currency:
+            fields:
+                name:
+                    type: twig
+                    label: sylius.ui.name
+                    path: .
+                    options:
+                        template: '@ToroCurrency/Currency/Grid/Field/name.html.twig'
+
+        sylius_admin_exchange_rate:
+            fields:
+                sourceCurrency:
+                    type: twig
+                    label: sylius.ui.source_currency
+                    path: .
+                    options:
+                        template: "@ToroCurrency/ExchangeRate/Grid/Field/sourceCurrencyName.html.twig"
+                targetCurrency:
+                    type: twig
+                    label: sylius.ui.target_currency
+                    path: .
+                    options:
+                        template: "@ToroCurrency/ExchangeRate/Grid/Field/targetCurrencyName.html.twig"

@@ -1,0 +1,5 @@
+{% extends '@SyliusUi/Form/theme.html.twig' %}
+
+{% block toro_sylius_geo_name_autocomplete_choice_row %}
+    {{ form_row(form, {'remote_url': path('toro_admin_ajax_filter_geo', { type: form.vars.geo_type }), 'load_edit_url': path('toro_admin_ajax_filter_geo')}) }}
+{% endblock %}

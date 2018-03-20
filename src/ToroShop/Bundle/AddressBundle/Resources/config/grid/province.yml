@@ -1,0 +1,39 @@
+sylius_grid:
+    grids:
+        toro_admin_province:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: "%toro.model.geo_name.class%"
+                    repository:
+                        method: createListProvinceQueryBuilder
+                        arguments: [ "expr:notFoundOnNull(service('toro.repository.country').find($countryId))", "%locale%" ]
+            filters:
+                name:
+                    label: 'Search'
+                    type: 'string'
+                    options:
+                        fields:
+                            - translation.name
+                            - translation.geoName
+                            - translation.slug
+
+            fields:
+                name:
+                    type: string
+                    label: "Name"
+                    sortable: ~
+
+            actions:
+                item:
+                    update:
+                        type: update
+                    viewDistrict:
+                         type: link
+                         label: toro.ui.district
+                         options:
+                             class: primary
+                             icon: eye
+                             route: toro_admin_geo_districts_index
+                             parameters:
+                                provinceId: resource.id

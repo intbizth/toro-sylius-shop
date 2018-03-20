@@ -1,0 +1,32 @@
+sylius_grid:
+    grids:
+        toro_admin_parish:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: "%toro.model.geo_name.class%"
+                    repository:
+                        method: createListParishQueryBuilder
+                        arguments: [ "expr:notFoundOnNull(service('toro.repository.geo_name').find($districtId))", "%locale%" ]
+            sorting: ~
+
+            filters:
+                name:
+                    label: 'Search'
+                    type: 'string'
+                    options:
+                        fields:
+                            - translation.name
+                            - translation.geoName
+                            - translation.slug
+
+            fields:
+                name:
+                    type: string
+                    label: "Name"
+                    sortable: ~
+
+            actions:
+                item:
+                    update:
+                        type: update

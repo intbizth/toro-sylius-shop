@@ -1,0 +1,11 @@
+sylius_addressing:
+    resources:
+        address:
+            classes:
+                model: ToroShop\Bundle\AddressBundle\Model\Address
+
+sylius_order:
+    resources:
+        order:
+            classes:
+                form: ToroShop\Bundle\AddressBundle\Form\Type\Sylius\Admin\Order\OrderType

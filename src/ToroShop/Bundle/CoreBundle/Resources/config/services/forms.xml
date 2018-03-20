@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service class="ToroShop\Bundle\CoreBundle\Form\Extension\AdminUserTypeExtension" public="false">
+            <argument type="service" id="security.authorization_checker" />
+            <tag name="form.type_extension" extended-type="Sylius\Bundle\CoreBundle\Form\Type\User\AdminUserType"/>
+        </service>
+
+        <service class="ToroShop\Bundle\CoreBundle\Form\Extension\ProductTypeExtension" public="false">
+            <tag name="form.type_extension" extended-type="Sylius\Bundle\ProductBundle\Form\Type\ProductType"/>
+        </service>
+
+        <service class="ToroShop\Bundle\CoreBundle\Form\Extension\CartItemTypeExtension" public="false">
+            <tag name="form.type_extension" extended-type="Sylius\Bundle\OrderBundle\Form\Type\CartItemType" />
+        </service>
+
+        <service class="ToroShop\Bundle\CoreBundle\Form\Extension\TaxonTypeExtension" public="false">
+            <tag name="form.type_extension" extended-type="Sylius\Bundle\TaxonomyBundle\Form\Type\TaxonType" />
+        </service>
+
+        <service class="ToroShop\Bundle\CoreBundle\Form\Type\TaxonConfigurationType" public="false">
+            <tag name="form.type" />
+        </service>
+        <service class="ToroShop\Bundle\CoreBundle\Form\Type\PriceRangeType" public="false">
+            <tag name="form.type" />
+        </service>
+
+        <service class="ToroShop\Bundle\CoreBundle\Form\Extension\ProductReviewTypeExtension" public="false">
+            <tag name="form.type_extension" extended-type="Sylius\Bundle\CoreBundle\Form\Type\Product\ProductReviewType"/>
+        </service>
+
+        <!--override toro-->
+        <service class="ToroShop\Bundle\CoreBundle\Form\Type\Sylius\Shop\AddressBookChoiceType" public="false">
+            <argument type="service" id="sylius.repository.address" />
+            <tag name="form.type" />
+        </service>
+
+        <!--override toro-->
+        <service class="ToroShop\Bundle\CoreBundle\Form\Type\Sylius\Shop\Checkout\AddressType">
+            <argument>%sylius.model.order.class%</argument>
+            <argument type="collection">
+                <argument>toro</argument>
+            </argument>
+            <tag name="form.type" />
+        </service>
+    </services>
+</container>

@@ -1,0 +1,7 @@
+sylius_grid:
+    grids:
+        bitbag_sylius_cms_plugin_admin_section:
+            actions:
+                item:
+                    delete:
+                        enabled: false

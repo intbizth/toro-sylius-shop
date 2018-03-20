@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service class="ToroShop\Bundle\CurrencyBundle\Validator\Constraints\CurrencyValidator" public="false">
+            <argument type="service" id="toro.currency.data_provider"/>
+            <tag name="validator.constraint_validator" />
+        </service>
+
+        <service class="ToroShop\Bundle\CurrencyBundle\Twig\CurrencyExtension" public="false">
+            <argument type="service">
+                <service class="ToroShop\Bundle\CurrencyBundle\Templating\Helper\CurrencyHelper" public="false">
+                    <argument type="service" id="toro.currency.data_provider"/>
+                </service>
+            </argument>
+            <tag name="twig.extension"/>
+        </service>
+
+        <service class="ToroShop\Bundle\CurrencyBundle\Form\Extension\CurrencyTypeExtension" public="false">
+            <argument type="service" id="toro.currency.data_provider"/>
+            <tag name="form.type_extension" extended-type="Sylius\Bundle\CurrencyBundle\Form\Type\CurrencyType" />
+        </service>
+
+        <service class="ToroShop\Bundle\CurrencyBundle\Form\Extension\CurrencyChoiceTypeExtension" public="false">
+            <argument type="service" id="toro.currency.data_provider"/>
+            <tag name="form.type_extension" extended-type="Sylius\Bundle\CurrencyBundle\Form\Type\CurrencyChoiceType" />
+        </service>
+
+        <service id="toro.templating_helper.currency_helper" class="ToroShop\Bundle\CurrencyBundle\Templating\Helper\CurrencyHelper" public="false"
+                 decorates="sylius.templating.helper.currency">
+            <argument type="service" id="toro.currency.data_provider" />
+        </service>
+
+        <service id="toro.formatter.money_formatter" class="ToroShop\Bundle\CurrencyBundle\Formatter\MoneyFormatter" public="false"
+                 decorates="sylius.money_formatter">
+            <argument type="service" id="toro.formatter.money_formatter.inner" />
+            <argument type="service" id="toro.currency.data_provider" />
+            <argument>%toro_formatter_config%</argument>
+        </service>
+    </services>
+</container>

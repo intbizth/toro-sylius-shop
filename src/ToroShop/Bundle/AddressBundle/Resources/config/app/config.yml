@@ -1,0 +1,14 @@
+imports:
+     - { resource: "@ToroAddressBundle/Resources/config/grid/main.yml" }
+     - { resource: "./sylius_resource.yml" }
+
+jms_serializer:
+    metadata:
+        directories:
+            toro_address:
+                namespace_prefix: "Toro\\AddressBundle"
+                path: "@ToroAddressBundle/Resources/config/serializer"
+sylius_grid:
+    templates:
+        filter:
+            geo_tree: '@ToroAddress/Admin/Sylius/Grid/Filter/geo.html.twig'

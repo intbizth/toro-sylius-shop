@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+
+    <mapped-superclass name="ToroShop\Bundle\AddressBundle\Model\Address" table="sylius_address">
+        <many-to-one field="geo" target-entity="ToroShop\Bundle\AddressBundle\Model\GeoNameInterface">
+            <join-column name="geo_id" on-delete="RESTRICT" nullable="true" />
+        </many-to-one>
+        <attribute-overrides>
+            <attribute-override name="city">
+                <field nullable="true" />
+            </attribute-override>
+             <attribute-override name="countryCode">
+                <field nullable="true" />
+            </attribute-override>
+            <attribute-override name="postcode">
+                <field nullable="true" />
+            </attribute-override>
+        </attribute-overrides>
+    </mapped-superclass>
+</doctrine-mapping>

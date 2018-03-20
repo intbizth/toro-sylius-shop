@@ -1,0 +1,11 @@
+<address>
+    <strong>{{ address.firstName }} {{ address.lastName }}</strong>
+    {% if address.company %}
+        {{ address.company }}<br/>
+    {% endif %}
+    {{ address.phoneNumber }}<br/>
+    {{ address.street }}<br/>
+    {% if address.geo %}
+        {{ address.geo.geoAddress }}
+    {% endif %}
+</address>
