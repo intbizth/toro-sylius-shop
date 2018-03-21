@@ -42,3 +42,17 @@ imports:
 toro_admin_sylius_shop:
     resource: "@ToroShopCoreBundle/Resources/config/routing/admin.yml"
 ```
+
+4. ถ้าทุกคนที่จะ checkout ได้ ต้องเป็น User (Login) ให้ setup ดังนี้
+```yaml
+# app/config/config.yml
+imports:
+    - { resource: "@ToroShopCoreBundle/Resources/config/app/not_allow_guest_checkout.yml" }
+toro_shop_core:
+    guest_checkout: false # default true
+```
+
+
+
+
+
