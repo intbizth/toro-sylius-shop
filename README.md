@@ -1,7 +1,13 @@
 # toro-sylius-shop
 
-composer.json
+0. composer.json
 `"intbizth/toro-sylius-shop": "dev-master"`
+```
+{
+   "type": "vcs",
+   "url": "https://github.com/intbizth/toro-sylius-shop"
+}
+```
 
 1. Register Bundles ที่จำเป็น
 ```php
@@ -29,4 +35,10 @@ imports:
 # app/config/services.yml
 imports:
     - "../../vendor/intbizth/toro-sylius-shop/src/Sylius/sylius_override.yml"
+```
+
+3. Add admin routing
+```yaml
+toro_admin_sylius_shop:
+    resource: "@ToroShopCoreBundle/Resources/config/routing/admin.yml"
 ```
