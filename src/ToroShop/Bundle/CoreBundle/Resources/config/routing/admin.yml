@@ -1,5 +1,5 @@
 toro_cms:
-    resource: "@ToroCmsBundle/Resources/config/route/main.yml"
+    resource: "@ToroShopCmsBundle/Resources/config/route/main.yml"
     prefix: /
 
 bitbag_sylius_cms_plugin_admin:
@@ -11,5 +11,5 @@ phpmob_sylius_settings_plugin_admin:
     prefix: /root
 
 sylius_admin_toro_geo:
-    resource: "@ToroAddressBundle/Resources/config/route/sylius_admin.yml"
+    resource: "@ToroShopAddressBundle/Resources/config/route/sylius_admin.yml"
     prefix: /root

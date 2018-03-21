@@ -1,0 +1,20 @@
+services:
+    sylius_pr.no_9006.parameter_parser:
+        class: Sylius\Resource\ParametersParser
+        decorates: sylius.resource_controller.parameters_parser
+        arguments:
+            - "@service_container"
+            - "@sylius.expression_language"
+    sylius_override.resource_controller.resources_resolver.grid_aware:
+        class: Sylius\Grid\ResourceResolver
+        decorates: sylius.resource_controller.resources_resolver
+        decoration-priority: -256
+        arguments:
+            - "@sylius_override.resource_controller.resources_resolver.grid_aware.inner"
+            - "@sylius.grid.provider"
+            - "@sylius.grid.resource_view_factory"
+    sylius_override.grid.filter.string_filter:
+        class: Sylius\Grid\Filter\StringFilter
+        decorates: sylius.grid_filter.string
+        arguments:
+            - "@sylius_override.grid.filter.string_filter.inner"

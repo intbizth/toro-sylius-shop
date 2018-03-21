@@ -10,10 +10,10 @@
             <tag name="kernel.event_listener" event="sylius.address.post_create" method="setDefault"/>
         </service>
 
-        <service id="gdd_core.resolver.order_address_resolver" class="ToroShop\Bundle\CoreBundle\Resolver\OrderAddressResolver" />
+        <service id="toro_shop_core.resolver.order_address_resolver" class="ToroShop\Bundle\CoreBundle\Resolver\OrderAddressResolver" />
 
-        <service id="gdd.context.cart.new_without_default_address" class="ToroShop\Bundle\CoreBundle\Context\CartContext" decorates="sylius.context.cart.new" decoration-priority="128" public="false">
-            <argument type="service" id="gdd.context.cart.new_without_default_address.inner" />
+        <service id="toro_shop_core.context.cart.new_without_default_address" class="ToroShop\Bundle\CoreBundle\Context\CartContext" decorates="sylius.context.cart.new" decoration-priority="128" public="false">
+            <argument type="service" id="toro_shop_core.context.cart.new_without_default_address.inner" />
         </service>
     </services>
 </container>

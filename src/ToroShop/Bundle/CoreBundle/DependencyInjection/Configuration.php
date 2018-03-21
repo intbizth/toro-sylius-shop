@@ -21,6 +21,7 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
             ->scalarNode('driver')->defaultValue(SyliusResourceBundle::DRIVER_DOCTRINE_ORM)->end()
+            ->booleanNode('guest_checkout')->defaultFalse()->end()
             ->arrayNode('resources')->addDefaultsIfNotSet()->end()
             ->end()
         ;

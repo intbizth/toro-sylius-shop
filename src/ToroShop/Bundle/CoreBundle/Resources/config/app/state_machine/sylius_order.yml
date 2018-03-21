@@ -4,5 +4,5 @@ winzou_state_machine:
             after:
                 sylius_save_addresses_on_customer:
                     on: ["create"]
-                    do: ["@gdd_core.resolver.order_address_resolver", "resolve"]
+                    do: ["@toro_shop_core.resolver.order_address_resolver", "resolve"]
                     args: ["object"]
