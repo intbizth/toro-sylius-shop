@@ -8,6 +8,7 @@ jms_serializer:
             toro_address:
                 namespace_prefix: "ToroShop\\Bundle\\AddressBundle"
                 path: "@ToroShopAddressBundle/Resources/config/serializer"
+
 sylius_grid:
     templates:
         filter:

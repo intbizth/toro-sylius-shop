@@ -17,6 +17,8 @@ public function registerBundles()
 ```yaml
 sylius_admin_toro_geo:
     resource: "@ToroAddressBundle/Resources/config/route/sylius_admin.yml"
+sylius_admin_toro_geo_filter:
+    resource: "@ToroAddressBundle/Resources/config/route/sylius_admin_filter.yml"
 ```
 
 ### Add config

@@ -31,8 +31,10 @@ final class AddressType extends AbstractResourceType
             ->add('street', TextType::class, [
                 'label' => 'sylius.form.address.street',
             ])
-            ->add('geo', GeoAutocompleteType::class, $geoOptions = [
+            ->add('geo', GeoAutocompleteType::class, [
+                'label' => 'sylius.form.address.geo',
                 'type' => GeoNameInterface::TYPE_PARISH,
+                'required' => true
             ])
         ;
     }

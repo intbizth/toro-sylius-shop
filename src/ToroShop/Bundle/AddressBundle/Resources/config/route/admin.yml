@@ -1,0 +1,72 @@
+toro_admin_geo_index:
+    path: /all-countries
+    methods: [GET]
+    defaults:
+        _controller: toro.controller.country:indexAction
+        _sylius:
+            template: "@ToroShopAddress/Admin/Sylius/Geo/Crud/index.html.twig"
+            grid: toro_admin_country
+            section: admin
+            vars:
+                header: toro.country
+                breadcrumb: "@ToroShopAddress/Admin/Sylius/Geo/_breadcrumb.html.twig"
+
+toro_admin_geo_provinces_index:
+    path: /provinces/{countryId}
+    methods: [GET]
+    defaults:
+        _controller: toro.controller.geo_name:indexAction
+        _sylius:
+            template: "@ToroShopAddress/Admin/Sylius/Geo/Crud/index.html.twig"
+            grid: toro_admin_province
+            section: admin
+            vars:
+                header: toro.ui.province
+                templates:
+                    breadcrumb: "@ToroShopAddress/Admin/Sylius/Geo/_breadcrumb.html.twig"
+
+toro_admin_geo_districts_index:
+    path: /districts/{provinceId}
+    methods: [GET]
+    defaults:
+        _controller: toro.controller.geo_name:indexAction
+        _sylius:
+            template: "@ToroShopAddress/Admin/Sylius/Geo/Crud/index.html.twig"
+            grid: toro_admin_district
+            section: admin
+            vars:
+                header: toro.ui.district
+                province: "expr:service('toro.repository.geo_name').find($provinceId)"
+                templates:
+                    breadcrumb: "@ToroShopAddress/Admin/Sylius/Geo/_breadcrumb.html.twig"
+
+toro_admin_geo_parishs_index:
+    path: /parishs/{districtId}
+    methods: [GET]
+    defaults:
+        _controller: toro.controller.geo_name:indexAction
+        _sylius:
+            template: "@ToroShopAddress/Admin/Sylius/Geo/Crud/index.html.twig"
+            grid: toro_admin_parish
+            section: admin
+            vars:
+                header: toro.ui.parish
+                district: "expr:service('toro.repository.geo_name').find($districtId)"
+                templates:
+                    breadcrumb: "@ToroShopAddress/Admin/Sylius/Geo/_breadcrumb.html.twig"
+
+toro_admin_geo_name_update:
+    path: /geo/{id}/edit
+    methods: [GET, PUT]
+    defaults:
+        _controller: toro.controller.geo_name:updateAction
+        _sylius:
+            template: "@ToroShopAddress/Admin/Sylius/Geo/Crud/update.html.twig"
+            section: admin
+            form:
+                type: ToroShop\Bundle\AddressBundle\Form\Type\GeoNameType
+            redirect: referer
+            vars:
+                templates:
+                    form: "@ToroShopAddress/Admin/Sylius/Geo/_form.html.twig"
+                    breadcrumb: "@ToroShopAddress/Admin/Sylius/Geo/_form_breadcrumb.html.twig"

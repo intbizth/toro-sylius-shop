@@ -64,7 +64,7 @@ class GeoNameRepository extends EntityRepository implements GeoNameRepositoryInt
     /**
      * {@inheritdoc}
      */
-    public function findForFilter(string $search, string $locale, $type = null)
+    public function findForFilter(string $search, string $locale, $type = null, $limit = 40)
     {
         if ('' === $search) {
             return [];
@@ -87,7 +87,7 @@ class GeoNameRepository extends EntityRepository implements GeoNameRepositoryInt
             )
             ->setParameter('search', $likeSearch)
             ->addOrderBy('translation.name', 'ASC')
-            ->setMaxResults(20)
+            ->setMaxResults($limit <= 100 ? $limit : 100)
             ->getQuery()->getResult()
         ;
     }

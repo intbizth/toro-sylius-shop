@@ -11,4 +11,5 @@ toro_shop_ajax_filter_geo:
                     - $keyword
                     - 'expr:service("sylius.context.locale").getLocaleCode()'
                     - $type
+                    - $limit
             serialization_groups: [Autocomplete]
