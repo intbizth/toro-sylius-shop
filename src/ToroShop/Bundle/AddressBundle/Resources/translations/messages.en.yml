@@ -16,5 +16,5 @@ toro:
 sylius:
     form:
         address:
-            street: 'บ้านเลขที่ หมู่บ้าน ถนน'
-            geo: 'ที่อยู่'
+            street: 'Address number, Village, Street'
+            geo: 'Zip code / District'
