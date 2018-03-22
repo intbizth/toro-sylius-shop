@@ -7,9 +7,9 @@
     <services>
         <service class="ToroShop\Bundle\CoreBundle\EventListener\AdminMenuListener" public="false">
             <argument type="service" id="security.authorization_checker"/>
-            <tag name="kernel.event_listener" event="sylius.menu.admin.main" method="checkGrant"/>
+            <tag name="kernel.event_listener" event="sylius.menu.admin.main" method="checkGrant" priority="-999"/>
         </service>
-        
+
         <service class="ToroShop\Bundle\CoreBundle\EventListener\AdminUserRootDeleteListener" public="false">
             <argument type="service" id="security.authorization_checker"/>
             <tag name="kernel.event_listener" event="sylius.admin_user.pre_delete" method="canDelete"/>
