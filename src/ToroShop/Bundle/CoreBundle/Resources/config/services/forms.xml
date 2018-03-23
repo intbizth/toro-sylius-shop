@@ -10,10 +10,6 @@
             <tag name="form.type_extension" extended-type="Sylius\Bundle\CoreBundle\Form\Type\User\AdminUserType"/>
         </service>
 
-        <service class="ToroShop\Bundle\CoreBundle\Form\Extension\ProductTypeExtension" public="false">
-            <tag name="form.type_extension" extended-type="Sylius\Bundle\ProductBundle\Form\Type\ProductType"/>
-        </service>
-
         <service class="ToroShop\Bundle\CoreBundle\Form\Extension\CartItemTypeExtension" public="false">
             <tag name="form.type_extension" extended-type="Sylius\Bundle\OrderBundle\Form\Type\CartItemType" />
         </service>
