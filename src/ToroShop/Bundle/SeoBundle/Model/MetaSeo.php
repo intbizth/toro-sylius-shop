@@ -9,7 +9,7 @@ use Toro\SeoBundle\Model\MetaSeo as BaseMetaSeo;
 /**
  * @method MetaSeoTranslationInterface getTranslation(): MetaSeoTranslationInterface
  */
-class MetaSeo extends BaseMetaSeo
+class MetaSeo extends BaseMetaSeo implements MetaSeoInterface
 {
     /**
      * {@inheritdoc}
