@@ -1,3 +1,12 @@
-elfinder:
-     resource: "@FMElfinderBundle/Resources/config/routing.yml"
-     prefix: /finder
+toro_shop_cms_page_show: # dont change this
+    path: /page/{slug}
+    methods: [GET]
+    defaults:
+        _controller: bitbag_sylius_cms_plugin.controller.page:showAction
+        _sylius:
+            template: "@SyliusShop/Page/show.html.twig"
+            repository:
+                method: findOneEnabledBySlug
+                arguments:
+                    - $slug
+                    - "expr:service('sylius.context.locale').getLocaleCode()"

@@ -1,6 +1,6 @@
-toro_cms:
-    resource: "@ToroShopCmsBundle/Resources/config/route/main.yml"
-    prefix: /
+elfinder:
+     resource: "@FMElfinderBundle/Resources/config/routing.yml"
+     prefix: /finder
 
 bitbag_sylius_cms_plugin_admin:
     resource: "@BitBagSyliusCmsPlugin/Resources/config/routing/admin.yml"
