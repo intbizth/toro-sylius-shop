@@ -22,5 +22,11 @@
         <service class="ToroShop\Bundle\SeoBundle\Form\Extension\MetaSeoTranslationExtension" id="toro_shop_seo.form_extension.meta_seo_translation_extension" public="false">
             <tag name="form.type_extension" extended-type="Toro\SeoBundle\Form\Type\MetaSeoTranslationType"/>
         </service>
+
+        <service class="ToroShop\Bundle\SeoBundle\EventListener\ImageUploadListener" id="toro_shop_seo.event_listener.image_upload_listener" public="false">
+            <argument id="sylius.image_uploader" type="service" />
+            <tag name="kernel.event_listener" event="toro.meta_seo.pre_create" method="uploadImage" />
+            <tag name="kernel.event_listener" event="toro.meta_seo.pre_update" method="uploadImage" />
+        </service>
     </services>
 </container>

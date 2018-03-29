@@ -1,12 +1,16 @@
+{% form_theme form "@ToroShopSeo/Form/theme.html.twig" %}
+{% from '@SyliusAdmin/Macro/translationForm.html.twig' import translationForm %}
+
 {{ form_errors(form) }}
-<div class="row">
-    <div class="col-sm-6">
+
+<div class="ui equal width grid">
+    <div class="column">
         {{ form_row(form.pathInfo) }}
         {{ form_row(form.routeName) }}
         {{ form_row(form.parameters) }}
     </div>
 
-    <div class="col-sm-6">
-        {{ form_row(form.translations) }}
+    <div class="column">
+        {{ translationForm(form.translations) }}
     </div>
 </div>
