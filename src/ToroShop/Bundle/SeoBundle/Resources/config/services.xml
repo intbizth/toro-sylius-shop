@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="toro_shop_seo.form_type.meta_seo_image_type" class="ToroShop\Bundle\SeoBundle\Form\Type\MetaDataSeoTranslationImageType">
+            <argument>%toro.model.meta_seo_translation_image.class%</argument>
+            <argument type="collection"><argument>toro</argument></argument>
+            <tag name="form.type" />
+        </service>
+
+        <service id="toro_shop_seo.provider.image" class="ToroShop\Bundle\SeoBundle\Provider\SyliusImageProvider">
+           <argument id="liip_imagine.cache.manager" type="service" />
+        </service>
+
+        <service id="toro_shop_seo.provider.sylius_locale" class="ToroShop\Bundle\SeoBundle\Provider\SyliusLocaleProvider">
+            <argument id="sylius.locale_provider" type="service" />
+        </service>
+
+        <service class="ToroShop\Bundle\SeoBundle\Form\Extension\MetaSeoTranslationExtension" id="toro_shop_seo.form_extension.meta_seo_translation_extension" public="false">
+            <tag name="form.type_extension" extended-type="Toro\SeoBundle\Form\Type\MetaSeoTranslationType"/>
+        </service>
+    </services>
+</container>

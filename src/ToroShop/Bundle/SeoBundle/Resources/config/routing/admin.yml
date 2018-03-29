@@ -1,0 +1,16 @@
+toro_admin_meta_seo:
+    resource: |
+        alias: toro.meta_seo
+        section: admin
+        templates: SyliusAdminBundle:Crud
+        except: ['show']
+        redirect: update
+        grid: toro_admin_meta_seo
+        permission: true
+        vars:
+            all:
+                templates:
+                    form: ToroShopSeoBundle:MetaSeo:_form.html.twig
+            index:
+                icon: users
+    type: sylius.resource

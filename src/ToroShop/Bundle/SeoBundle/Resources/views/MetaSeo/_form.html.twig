@@ -1,0 +1,12 @@
+{{ form_errors(form) }}
+<div class="row">
+    <div class="col-sm-6">
+        {{ form_row(form.pathInfo) }}
+        {{ form_row(form.routeName) }}
+        {{ form_row(form.parameters) }}
+    </div>
+
+    <div class="col-sm-6">
+        {{ form_row(form.translations) }}
+    </div>
+</div>

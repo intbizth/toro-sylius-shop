@@ -1,0 +1,8 @@
+{% if data.pathInfo %}
+    <strong>{{ 'path' }}</strong> {{ data.pathInfo }} <br>
+{% endif %}
+
+{% if data.routeName %}
+    <strong>{{ 'route' }}</strong> {{ data.routeName }} <br> with {{ data.parameters|json_encode }}<br>
+{% endif %}
+
