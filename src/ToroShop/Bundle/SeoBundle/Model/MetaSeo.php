@@ -14,6 +14,14 @@ class MetaSeo extends BaseMetaSeo implements MetaSeoInterface
     /**
      * {@inheritdoc}
      */
+    public function createTranslation()
+    {
+        return new MetaSeoTranslation();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getImage(): ?MetaSeoTranslationImageInterface
     {
         return $this->getTranslation()->getImage();
