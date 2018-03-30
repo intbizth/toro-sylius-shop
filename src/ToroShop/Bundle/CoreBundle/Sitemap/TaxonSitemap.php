@@ -4,25 +4,25 @@ declare(strict_types=1);
 
 namespace ToroShop\Bundle\CoreBundle\Sitemap;
 
-use BitBag\SyliusCmsPlugin\Entity\PageInterface;
-use BitBag\SyliusCmsPlugin\Entity\PageTranslationInterface;
-use BitBag\SyliusCmsPlugin\Repository\PageRepositoryInterface;
 use Presta\SitemapBundle\Service\UrlContainerInterface;
 use Presta\SitemapBundle\Sitemap\Url\GoogleMultilangUrlDecorator;
 use Presta\SitemapBundle\Sitemap\Url\UrlConcrete;
+use Sylius\Component\Taxonomy\Model\TaxonTranslationInterface;
+use Sylius\Component\Taxonomy\Repository\TaxonRepositoryInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Toro\SeoBundle\Sitemap\AbstractSitemapListener;
+use ToroShop\Bundle\CoreBundle\Model\TaxonInterface;
 
-class CmsPageSitemap extends AbstractSitemapListener
+class TaxonSitemap extends AbstractSitemapListener
 {
-    const SECTION = 'cms_page';
+    const SECTION = 'taxon';
 
     /**
-     * @var PageRepositoryInterface
+     * @var TaxonRepositoryInterface
      */
     private $repository;
 
-    public function __construct(UrlGeneratorInterface $urlGenerator, PageRepositoryInterface $repository)
+    public function __construct(UrlGeneratorInterface $urlGenerator, TaxonRepositoryInterface $repository)
     {
         parent::__construct($urlGenerator);
         $this->repository = $repository;
@@ -33,23 +33,27 @@ class CmsPageSitemap extends AbstractSitemapListener
      */
     public function registerUrls(UrlContainerInterface $urls): void
     {
-        $pages = $this->repository->findBy(['enabled' => true]);
-        /** @var PageInterface $page */
-        foreach ($pages as $page) {
-            $translations = $page->getTranslations();
+        $taxons = $this->repository->findAll();
+        /** @var TaxonInterface $taxon */
+        foreach ($taxons as $taxon) {
+            if ($taxon->isRoot()) {
+                continue;
+            }
+
+            $translations = $taxon->getTranslations();
             $isMultiLang = 2 <= count($translations);
             $url = new UrlConcrete(
                 $this->urlGenerator->generate(
-                    'toro_shop_cms_page_show',
+                    'sylius_shop_product_index',
                     [
-                        'slug' => $page->getSlug(),
-                        '_locale' => $page->getTranslation()->getLocale()
+                        'slug' => $taxon->getSlug(),
+                        '_locale' => $taxon->getTranslation()->getLocale()
                     ],
                     UrlGeneratorInterface::ABSOLUTE_URL
                 ),
-                $page->getUpdatedAt() ?: $page->getCreatedAt(),
-                'weekly',
-                0.8
+                new \Datetime,
+                'always',
+                0.7
             );
 
             if (!$isMultiLang) {
@@ -58,10 +62,10 @@ class CmsPageSitemap extends AbstractSitemapListener
             }
 
             $url = new GoogleMultilangUrlDecorator($url);
-            /** @var PageTranslationInterface $translation */
+            /** @var TaxonTranslationInterface $translation */
             foreach ($translations as $translation) {
                 $url->addLink($this->urlGenerator->generate(
-                    'toro_shop_cms_page_show',
+                    'sylius_shop_product_index',
                     [
                         'slug' => $translation->getSlug(),
                         '_locale' => $translation->getLocale()

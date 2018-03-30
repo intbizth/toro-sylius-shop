@@ -9,5 +9,16 @@
             <argument type="service" id="bitbag_sylius_cms_plugin.repository.page" />
             <tag name="kernel.event_subscriber" />
         </service>
+
+        <service parent="toro_seo.listener.abstract_sitemap_listener" id="toro_shop_core.sitemap.taxon_sitemap" class="ToroShop\Bundle\CoreBundle\Sitemap\TaxonSitemap">
+            <argument type="service" id="sylius.repository.taxon" />
+            <tag name="kernel.event_subscriber" />
+        </service>
+
+        <service parent="toro_seo.listener.abstract_sitemap_listener" id="toro_shop_core.sitemap.product_sitemap" class="ToroShop\Bundle\CoreBundle\Sitemap\ProductSitemap">
+            <argument type="service" id="sylius.repository.product" />
+            <argument type="service" id="sylius.context.channel" />
+            <tag name="kernel.event_subscriber" />
+        </service>
     </services>
 </container>
