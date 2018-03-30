@@ -68,9 +68,9 @@ class ProductSitemap extends AbstractSitemapListener
                     ],
                     UrlGeneratorInterface::ABSOLUTE_URL
                 ),
-                new \Datetime,
-                'always',
-                0.7
+                $product->getUpdatedAt() ?: $product->getCreatedAt(),
+                'daily',
+                1.0
             );
 
             if (!$isMultiLang) {
