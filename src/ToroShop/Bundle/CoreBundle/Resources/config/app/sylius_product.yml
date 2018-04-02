@@ -1,0 +1,8 @@
+sylius_product:
+    resources:
+        product_option:
+            classes:
+                model: ToroShop\Bundle\CoreBundle\Model\ProductOption
+        product_option_value:
+            classes:
+                model: ToroShop\Bundle\CoreBundle\Model\ProductOptionValue

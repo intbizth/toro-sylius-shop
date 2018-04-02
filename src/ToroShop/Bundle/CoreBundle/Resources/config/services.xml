@@ -40,5 +40,10 @@
             <argument id="sylius.context.currency" type="service" />
             <tag name="sylius.grid_filter" type="price" form-type="Sylius\Bundle\GridBundle\Form\Type\Filter\StringFilterType" />
         </service>
+
+        <service id="toro.registry.product_option_type" class="Sylius\Component\Registry\ServiceRegistry">
+            <argument>ToroShop\Bundle\CoreBundle\ProductOption\ProductOptionTypeInterface</argument>
+            <argument>product_option_type</argument>
+        </service>
     </services>
 </container>

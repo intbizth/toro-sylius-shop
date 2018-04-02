@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace ToroShop\Bundle\CoreBundle\DependencyInjection;
 
-use ToroShop\Bundle\CoreBundle\GddCoreBundle;
 use Sylius\Bundle\ResourceBundle\DependencyInjection\Extension\AbstractResourceExtension;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

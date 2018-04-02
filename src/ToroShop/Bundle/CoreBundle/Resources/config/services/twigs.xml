@@ -38,5 +38,10 @@
             <argument type="service" id="twig" />
             <tag name="twig.extension"/>
         </service>
+
+        <service id="toro.form_extension.product_option_type" class="ToroShop\Bundle\CoreBundle\Form\Extension\ProductOptionTypeExtension" public="false">
+            <argument type="service" id="toro.form_registry.product_option_type" />
+            <tag name="form.type_extension" extended-type="Sylius\Bundle\ProductBundle\Form\Type\ProductOptionType"/>
+        </service>
     </services>
 </container>

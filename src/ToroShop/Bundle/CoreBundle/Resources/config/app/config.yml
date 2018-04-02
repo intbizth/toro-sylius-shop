@@ -2,6 +2,7 @@ imports:
      - { resource: "@ToroShopCoreBundle/Resources/config/grid/main.yml" }
      - { resource: "./sylius_resource.yml" }
      - { resource: "./sylius_taxonomy.yml" }
+     - { resource: "./sylius_product.yml" }
      - { resource: "./state_machine/sylius_order.yml" }
 
      - { resource: "@ToroShopAddressBundle/Resources/config/app/config.yml" }
@@ -10,3 +11,8 @@ imports:
      - { resource: "@ToroShopCmsBundle/Resources/config/app/config.yml" }
      - { resource: '@BitBagSyliusCmsPlugin/Resources/config/config.yml' }
      - { resource: "@PhpMobSyliusSettingsPlugin/Resources/config/app/config.yml" }
+
+sylius_grid:
+    templates:
+        action:
+            product_option_types: '@ToroShopCore/ProductOption/Grid/Action/_actions.html.twig'
