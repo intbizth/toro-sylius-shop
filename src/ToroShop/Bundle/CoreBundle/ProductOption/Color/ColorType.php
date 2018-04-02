@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ToroShop\Bundle\CoreBundle\Form\Type;
+namespace ToroShop\Bundle\CoreBundle\ProductOption\Color;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
