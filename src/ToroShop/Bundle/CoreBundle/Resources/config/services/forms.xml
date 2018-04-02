@@ -37,8 +37,8 @@
             <tag name="form.type_extension" extended-type="Sylius\Bundle\ProductBundle\Form\Type\ProductOptionType"/>
         </service>
 
-        <service id="toro.product_option_type.color" class="ToroShop\Bundle\CoreBundle\ProductOption\Color\Color">
-            <tag name="toro.product_option_type" type="color" form-type="ToroShop\Bundle\CoreBundle\ProductOption\Color\ColorType" />
+        <service id="toro.product_option_type.color" class="ToroShop\Bundle\CoreBundle\ProductOption\Color\ColorOption">
+            <tag name="toro.product_option_type" type="color" form-type="ToroShop\Bundle\CoreBundle\ProductOption\Color\ConfigurationColorType" />
         </service>
 
         <service id="toro.form_type.product_option_with_configuration_type" class="ToroShop\Bundle\CoreBundle\Form\Type\ProductOptionWithConfugurationType" public="false">

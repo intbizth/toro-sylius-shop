@@ -6,7 +6,7 @@ namespace ToroShop\Bundle\CoreBundle\ProductOption\Color;
 
 use ToroShop\Bundle\CoreBundle\ProductOption\ProductOptionTypeInterface;
 
-final class Color implements ProductOptionTypeInterface
+final class ColorOption implements ProductOptionTypeInterface
 {
     /**
      * {@inheritdoc}
