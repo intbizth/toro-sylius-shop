@@ -26,14 +26,6 @@ class ConfigurationColorType extends AbstractType
                     ])
                 ]
             ])
-            ->add('xx', TextType::class, [
-                'required' => true,
-                'constraints' => [
-                    new NotBlank([
-                        'groups' => ['sylius']
-                    ])
-                ]
-            ])
         ;
     }
 }
