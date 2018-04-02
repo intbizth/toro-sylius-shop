@@ -67,6 +67,10 @@ final class ProductOptionTypeExtension extends AbstractTypeExtension
                     return;
                 }
 
+                if (null === $this->formRegistry->get($options['option_type'], 'default')) {
+                    return;
+                }
+
                 $data->setOptionType($options['option_type']);
 
                 $event->setData($data);
