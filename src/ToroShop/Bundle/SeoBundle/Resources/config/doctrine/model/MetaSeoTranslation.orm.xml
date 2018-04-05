@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <mapped-superclass name="ToroShop\Bundle\SeoBundle\Model\MetaSeoTranslation" table="toro_seo_meta_seo_translation">
+        <one-to-one field="image" target-entity="ToroShop\Bundle\SeoBundle\Model\MetaSeoTranslationImageInterface" mapped-by="owner"
+                    orphan-removal="true">
+            <cascade>
+                <cascade-all />
+            </cascade>
+        </one-to-one>
+    </mapped-superclass>
+</doctrine-mapping>

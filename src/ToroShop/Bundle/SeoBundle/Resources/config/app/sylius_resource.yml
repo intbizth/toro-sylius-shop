@@ -1,0 +1,12 @@
+sylius_resource:
+    resources:
+        toro.meta_seo_translation_image:
+            classes:
+                model: ToroShop\Bundle\SeoBundle\Model\MetaSeoTranslationImage
+                interface: ToroShop\Bundle\SeoBundle\Model\MetaSeoTranslationImageInterface
+        toro.meta_seo:
+            classes:
+                model: ToroShop\Bundle\SeoBundle\Model\MetaSeo
+            translation:
+                classes:
+                    model: ToroShop\Bundle\SeoBundle\Model\MetaSeoTranslation

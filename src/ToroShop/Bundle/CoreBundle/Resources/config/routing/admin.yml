@@ -1,6 +1,6 @@
-toro_cms:
-    resource: "@ToroShopCmsBundle/Resources/config/route/main.yml"
-    prefix: /
+elfinder:
+     resource: "@FMElfinderBundle/Resources/config/routing.yml"
+     prefix: /finder
 
 phpmob_sylius_settings_plugin_admin:
     resource: "@PhpMobSyliusSettingsPlugin/Resources/config/routing/admin.yml"
@@ -13,3 +13,7 @@ sylius_admin_toro_geo_filter:
 sylius_admin_toro_geo_crud:
     resource: "@ToroShopAddressBundle/Resources/config/route/admin.yml"
     prefix: /root
+
+sylius_admin_toro_admin_seo:
+    resource: "@ToroShopSeoBundle/Resources/config/routing/admin.yml"
+    prefix: /

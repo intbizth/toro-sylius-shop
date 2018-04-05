@@ -1,0 +1,36 @@
+sylius_grid:
+    grids:
+        toro_admin_meta_seo:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: "%toro.model.meta_seo.class%"
+
+            sorting: ~
+
+            fields:
+                routeInfo:
+                    type: twig
+                    path: .
+                    label: "Route Info"
+                    options:
+                        template: "@ToroShopSeo/MetaSeo/Grid/Field/routeInfo.html.twig"
+
+            filters:
+                search:
+                    type: string
+                    label: Search
+                    options:
+                        fields:
+                            - pathInfo
+                            - routeName
+
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete

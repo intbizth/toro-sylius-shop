@@ -1,0 +1,5 @@
+{% for choice in data %}
+    <button type="button"
+            class="btn btn-secondary {{ choice.value == form.vars.value ? 'active' : '' }}"
+            data-value="{{ choice.value }}" style="border:1px solid black; background-color: {{ choice.data.typeConfiguration.color }}">{{ '&nbsp;' }}</button>
+{% endfor %}

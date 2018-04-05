@@ -1,0 +1,10 @@
+imports:
+     - { resource: "@ToroSeoBundle/Resources/config/app/main.yml" }
+     - { resource: "@ToroShopSeoBundle/Resources/config/app/sylius_resource.yml" }
+     - { resource: "@ToroShopSeoBundle/Resources/config/grids/meta_seo.yml" }
+
+toro_seo:
+    sitemap_locale:
+        service: "toro_shop_seo.provider.sylius_locale"
+    renderer:
+        image_provider: "toro_shop_seo.provider.image"

@@ -31,6 +31,11 @@ class AdminMenuListener
                     'route' => 'toro_admin_geo_index',
                     'label' => 'toro.ui.geo_names',
                 ]);
+
+                $group->addChild('seo', [
+                    'route' => 'toro_admin_meta_seo_index',
+                    'label' => 'toro.ui.seos',
+                ]);
             }
 
             $group->setChildren(array_filter($group->getChildren(), function (MenuItem $item) {

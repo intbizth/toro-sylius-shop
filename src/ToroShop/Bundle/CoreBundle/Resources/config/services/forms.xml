@@ -29,6 +29,26 @@
             <tag name="form.type_extension" extended-type="Sylius\Bundle\CoreBundle\Form\Type\Product\ProductReviewType"/>
         </service>
 
+
+
+        <service id="toro.form_registry.product_option_type" class="Sylius\Bundle\ResourceBundle\Form\Registry\FormTypeRegistry" public="false" />
+        <service id="toro.form_extension.product_option_type" class="ToroShop\Bundle\CoreBundle\Form\Extension\ProductOptionTypeExtension" public="false">
+            <argument type="service" id="toro.form_registry.product_option_type" />
+            <tag name="form.type_extension" extended-type="Sylius\Bundle\ProductBundle\Form\Type\ProductOptionType"/>
+        </service>
+
+        <service id="toro.product_option_type.color" class="ToroShop\Bundle\CoreBundle\ProductOption\Color\ColorOption">
+            <tag name="toro.product_option_type" type="color" form-type="ToroShop\Bundle\CoreBundle\ProductOption\Color\ConfigurationColorType" />
+        </service>
+
+        <service id="toro.form_type.product_option_with_configuration_type" class="ToroShop\Bundle\CoreBundle\Form\Type\ProductOptionWithConfugurationType" public="false">
+            <argument>%sylius.model.product_option_value.class%</argument>
+            <argument type="collection">
+                <argument>sylius</argument>
+            </argument>
+            <tag name="form.type" />
+        </service>
+
         <!--override toro-->
         <service class="ToroShop\Bundle\CoreBundle\Form\Type\Sylius\Shop\AddressBookChoiceType" public="false">
             <argument type="service" id="sylius.repository.address" />

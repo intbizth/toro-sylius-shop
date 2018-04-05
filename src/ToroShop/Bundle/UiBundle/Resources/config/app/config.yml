@@ -1,0 +1,2 @@
+imports:
+   - { resource: "@ToroShopUiBundle/Resources/config/services.xml" }

@@ -10,7 +10,7 @@ sylius_grid:
                     label: sylius.ui.name
                     path: .
                     options:
-                        template: '@ToroCurrency/Currency/Grid/Field/name.html.twig'
+                        template: '@ToroShopCurrency/Currency/Grid/Field/name.html.twig'
 
         sylius_admin_exchange_rate:
             fields:
@@ -19,10 +19,10 @@ sylius_grid:
                     label: sylius.ui.source_currency
                     path: .
                     options:
-                        template: "@ToroCurrency/ExchangeRate/Grid/Field/sourceCurrencyName.html.twig"
+                        template: "@ToroShopCurrency/ExchangeRate/Grid/Field/sourceCurrencyName.html.twig"
                 targetCurrency:
                     type: twig
                     label: sylius.ui.target_currency
                     path: .
                     options:
-                        template: "@ToroCurrency/ExchangeRate/Grid/Field/targetCurrencyName.html.twig"
+                        template: "@ToroShopCurrency/ExchangeRate/Grid/Field/targetCurrencyName.html.twig"

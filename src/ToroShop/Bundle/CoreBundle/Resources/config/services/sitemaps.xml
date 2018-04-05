@@ -5,13 +5,20 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="gdd_core.sitemap_provider.cms_url_provider" class="ToroShop\Bundle\CoreBundle\Sitemap\Provider\CmsUrlProvider"
-                 public="false">
-            <argument type="service" id="bitbag_sylius_cms_plugin.repository.page"/>
-            <argument type="service" id="router"/>
-            <argument type="service" id="sylius.sitemap_url_factory"/>
-            <argument type="service" id="sylius.context.locale"/>
-            <tag name="sylius.sitemap_provider"/>
+        <service parent="toro_seo.listener.abstract_sitemap_listener" id="toro_shop_core.sitemap.cms_page_sitemap" class="ToroShop\Bundle\CoreBundle\Sitemap\CmsPageSitemap">
+            <argument type="service" id="bitbag_sylius_cms_plugin.repository.page" />
+            <tag name="kernel.event_subscriber" />
+        </service>
+
+        <service parent="toro_seo.listener.abstract_sitemap_listener" id="toro_shop_core.sitemap.taxon_sitemap" class="ToroShop\Bundle\CoreBundle\Sitemap\TaxonSitemap">
+            <argument type="service" id="sylius.repository.taxon" />
+            <tag name="kernel.event_subscriber" />
+        </service>
+
+        <service parent="toro_seo.listener.abstract_sitemap_listener" id="toro_shop_core.sitemap.product_sitemap" class="ToroShop\Bundle\CoreBundle\Sitemap\ProductSitemap">
+            <argument type="service" id="sylius.repository.product" />
+            <argument type="service" id="sylius.context.channel" />
+            <tag name="kernel.event_subscriber" />
         </service>
     </services>
 </container>

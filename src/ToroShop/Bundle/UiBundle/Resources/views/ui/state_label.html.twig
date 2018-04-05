@@ -1,0 +1,11 @@
+{% macro state_label(r, graph, field = null) -%}
+    {% do ts_graph_set(graph) %}
+    {% set state = attribute(r, field|default('state')) %}
+    {% set color = ts_state_color(state) %}
+    {% set label = ts_state_label(state) %}
+    {% set icon = ts_state_icon(state) %}
+    <span class="badge badge-pill badge-{{ color }}">
+        <i class="fa fa-{{ icon }}"></i>
+        {{ label|trans }}
+    </span>
+{%- endmacro %}
