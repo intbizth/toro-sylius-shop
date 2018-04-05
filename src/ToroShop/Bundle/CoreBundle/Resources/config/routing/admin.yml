@@ -2,10 +2,6 @@ toro_cms:
     resource: "@ToroShopCmsBundle/Resources/config/route/main.yml"
     prefix: /
 
-bitbag_sylius_cms_plugin_admin:
-    resource: "@BitBagSyliusCmsPlugin/Resources/config/routing/admin.yml"
-    prefix: /
-
 phpmob_sylius_settings_plugin_admin:
     resource: "@PhpMobSyliusSettingsPlugin/Resources/config/routing/admin.yml"
     prefix: /root
