@@ -33,7 +33,7 @@ final class DumpCommand extends ContainerAwareCommand
 
             return;
         }
-        $pathData = $this->getContainer()->get('kernel')->locateResource('@ToroAddressBundle/Resources/data/th_geo.yml');
+        $pathData = $this->getContainer()->get('kernel')->locateResource('@ToroShopAddressBundle/Resources/data/th_geo.yml');
         $data = Yaml::parse(file_get_contents($pathData));
 
         $this->import($data, GeoNameInterface::TYPE_PROVINCE);
