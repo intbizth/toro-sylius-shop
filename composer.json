@@ -4,7 +4,7 @@
   "require": {
     "php": ">=7.2",
 
-    "symfony/symfony": "^3.4.0",
+    "symfony/symfony": "^3.4.0|^4.1",
     "sylius/sylius": "^1.1",
     "phpmob/twig-modify-bundle": "^1.1",
     "bitbag/cms-plugin": "^1.2",
